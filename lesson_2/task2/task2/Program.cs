@@ -2,6 +2,14 @@
 
 namespace task2
 {
+
+    enum Status
+    {
+        potential,
+        oneTime,
+        regular,
+        lost
+    }
     struct Client
     {
         string codeOfClient;
@@ -11,8 +19,9 @@ namespace task2
         string phone;
         int numderOrder;
         double sumOrder;
+        Status statClient;
 
-        public Client(string code, string firstName, string lastName, string address, string phone, int number, double sum)
+        public Client(string code, string firstName, string lastName, string address, string phone, int number, double sum, Status statClient)
         {
             codeOfClient = code;
             this.firstName = firstName;
@@ -21,6 +30,7 @@ namespace task2
             this.phone = phone;
             numderOrder = number;
             sumOrder = sum;
+            this.statClient = statClient;
         }
         public void Print()
         {
@@ -31,6 +41,7 @@ namespace task2
             Console.WriteLine($"Phone number: {phone}");
             Console.WriteLine($"The numder of Order: {numderOrder}");
             Console.WriteLine($"Total customer orders : {sumOrder}");
+            Console.WriteLine($"Сustomer importance: {statClient}");
         }
     }
     class Program
@@ -44,8 +55,9 @@ namespace task2
             string phone = "8(025)123-45-67";
             int numberOrder = 3;
             double sum = 854.65;
+            Status stat = Status.oneTime;
 
-            Client Alex = new Client(code, firstName, lastName, address, phone, numberOrder, sum);
+            Client Alex = new Client(code, firstName, lastName, address, phone, numberOrder, sum, stat);
 
             Alex.Print();
         }
