@@ -2,37 +2,35 @@
 
 namespace task4
 {
+    enum PayType
+    {
+        card = 1,
+        cash,
+        online
+    }
     struct Request
     {
         string codeRequest;
-
         string client;
-
         DateTime date;
-
         string[] nameProduct;
-
         double resSum;
+        PayType pay;
 
-       public  Request (string codeRequest, string client, string[] nameProduct, double resSum)
+       public  Request (string codeRequest, string client, string[] nameProduct, double resSum, PayType pay)
         {
             this.codeRequest = codeRequest;
-
             this.client = client;
-
             date = DateTime.Now;
-
             this.nameProduct = nameProduct;
-
             this.resSum = resSum;
+            this.pay = pay;
         }
 
         public void Print()
         {
             Console.WriteLine($"Code: {codeRequest}");
-
             Console.WriteLine($"Client: {client}");
-
             Console.WriteLine($"Date request: {date}");
 
             Console.Write("Name product: ");
@@ -42,10 +40,28 @@ namespace task4
             }
 
             Console.WriteLine($"\nSum request: {resSum}");
+            Console.WriteLine($"Type paymant: {pay}");
         }
     }
     class Program
     {
+        static PayType PaymantType(int payType)
+        {
+            PayType example = PayType.cash;
+
+            if((int)example < payType)
+            {
+                return PayType.online;
+            }
+            else if((int)example> payType)
+            {
+                return PayType.card;
+            }
+            else
+            {
+                return PayType.cash;
+            }
+        }
         static double summa(params double[] arr)
         {
             double res = 0;
@@ -57,11 +73,8 @@ namespace task4
         }
         static void Main(string[] args)
         {
-           Console.Write("Enter code request: ");
-           string code = Console.ReadLine();
-
-           Console.Write("Enter name: ");
-           string nameClient = Console.ReadLine();
+            string code = "01fxe32rj";
+            string nameClient = "Alex";
 
            Console.Write("Enter quentity product: ");
            int quantity = Convert.ToInt32(Console.ReadLine());
@@ -79,9 +92,15 @@ namespace task4
                price[i] = Convert.ToDouble(Console.ReadLine());
            }
 
+            Console.WriteLine("\nPayment Methods:\n1 - card\n2 - cash\n3 - online");
+            Console.Write("Сhoose your preferred payment method: ");
+
+            int payType = Convert.ToInt32(Console.ReadLine());
+            PayType pay = PaymantType(payType);
+
            double resSum = summa(price);
 
-           Request newRequest = new Request(code, nameClient, nameProducts, resSum);
+           Request newRequest = new Request(code, nameClient, nameProducts, resSum, pay);
 
            Console.WriteLine();
            newRequest.Print();
