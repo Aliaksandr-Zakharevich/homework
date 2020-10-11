@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sputnik", "sputnik\sputnik.csproj", "{40594467-92F0-4AF1-93F0-D07A034D43DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40594467-92F0-4AF1-93F0-D07A034D43DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40594467-92F0-4AF1-93F0-D07A034D43DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40594467-92F0-4AF1-93F0-D07A034D43DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40594467-92F0-4AF1-93F0-D07A034D43DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BC8EE0E-7BF8-4BAE-AAD9-FE2DA2D6F396}
+	EndGlobalSection
+EndGlobal
