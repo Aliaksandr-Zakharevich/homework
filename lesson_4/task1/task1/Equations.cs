@@ -4,12 +4,12 @@ using System.Text;
 
 namespace task1
 {
-    class Linear
+    class Equations
     {
-        int A;
-        int B;
+        public int A;
+        public int B;
 
-        public Linear(string value)
+        public Equations(string value)
         {
             string[] _value = Parse(value);
             if (_value.Length == 2)
@@ -17,10 +17,14 @@ namespace task1
                 A = Convert.ToInt32(_value[0]);
                 B = Convert.ToInt32(_value[1]);
             }
-            else
+            else if (_value.Length == 3 && _value[2] != " ")
             {
                 A = Convert.ToInt32(_value[0]);
                 B = Convert.ToInt32(_value[2]);
+            }
+            else
+            {
+                throw new MyException();
             }
         }
         public static string[] Parse(string userInput)
@@ -30,7 +34,7 @@ namespace task1
         }
         public void Print()
         {
-            Console.Write($"{A}*X + {B}*Y = 0");
+            Console.Write($"{A}*X + {B}*Y = 0\n");
         }
     }
 }
